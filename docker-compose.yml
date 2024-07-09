@@ -1,0 +1,25 @@
+version: "3.8"
+
+volumes:
+  db-vol:
+
+services:
+  mongoDB:
+    image: mongo:jammy
+    container_name: Database_Container
+
+    restart: always
+    stdin_open: true
+
+    volumes:
+      - db-vol:/data/db
+
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USR}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PWD}
+
+    env_file:
+      - .env
+
+    ports:
+      - 27017:27017

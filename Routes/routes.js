@@ -1,5 +1,10 @@
 import { Router } from "express";
-import { createProduct, getProduct } from "../Controllers/mainController.js";
+import {
+  createProduct,
+  deleteProduct,
+  getProduct,
+  updateProduct,
+} from "../Controllers/mainController.js";
 
 const routes = Router();
 
@@ -9,9 +14,9 @@ routes.get("/", (req, res) => {
   });
 });
 
-routes.get("/api/getAll", getProduct);
-routes.post("/api/createProduct", createProduct);
-// routes.put("/api/updateProduct", updateProduct);
-// routes.delete("/api/deleteOneProduct", deleteProduct);
+routes.get("/api/product", getProduct);
+routes.post("/api/product", createProduct);
+routes.put("/api/updateProduct/:id", updateProduct);
+routes.delete("/api/deleteOneProduct/:id", deleteProduct);
 
 export default routes;

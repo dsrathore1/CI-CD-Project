@@ -16,6 +16,9 @@ app.use(cors());
 
 app.use(routes);
 
+app.set("views", "Templates");
+app.set("view engine", "ejs")
+
 app.listen(PORT, (req, res) => {
   connectDB();
   console.log(`Your site is live on http://localhost:${PORT}`);

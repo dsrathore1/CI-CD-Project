@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 
-const Schema = new mongoose.Schema(
+const Schema = mongoose.Schema(
   {
     id: {
       type: Number,
       require: true,
+      unique: true,
     },
 
     name: String,
@@ -13,6 +14,7 @@ const Schema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const productModel = mongoose.models || mongoose.model("Product", Schema);
+const productModel =
+  mongoose.models.Products || new mongoose.model("Product", Schema);
 
 export default productModel;
