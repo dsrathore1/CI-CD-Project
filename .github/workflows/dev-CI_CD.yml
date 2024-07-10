@@ -12,7 +12,7 @@ jobs:
     defaults:
       run:
         working-directory: ./
-        
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -31,9 +31,6 @@ jobs:
           username: ${{secrets.DOCKER_USERNAME}}
           password: ${{secrets.DOCKER_PWD}}
 
-      # - name: Push to Docker Hub
-      #   uses : docker/build-push-action@v5
-
       - name: Install Dependencies & Test the product
         run: |
           npm install
@@ -41,8 +38,8 @@ jobs:
 
       - name: Build and Push Docker image
         run: |
-          docker build -t cloud/backend-project:latest .
-          docker push cloud/backend-project:latest
+          docker build -t fradriks/cloud-backend-project:latest .
+          docker push fradriks/cloud-backend-project:latest
 
   backend-deployment:
     runs-on: ubuntu-22.04
