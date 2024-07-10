@@ -1,10 +1,10 @@
-name: CI-CD pipeline
-run-name: ${{ github.actor }} is testing out GitHub Actions Pipeline 🚀
+name: CI-CD pipeline of Main branch
+run-name: Workflow number ${{github.run_number}}
 
 on:
   push:
     branches:
-      - development
+      - main
 
 jobs:
   backend-integrate:
