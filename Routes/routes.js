@@ -5,17 +5,20 @@ import {
   getProduct,
   updateProduct,
 } from "../Controllers/mainController.js";
+import productModel from "../Model/projectModel.js";
 
 const routes = Router();
 
-routes.get("/", (req, res) => {
+routes.get("/", async (req, res) => {
+  const getData = await productModel.find({});
   res.render("home.ejs", {
-    title: "Home Page",
+    title: "Product Page",
+    data: getData,
   });
 });
 
-routes.get("/api/product", getProduct);
-routes.post("/api/product", createProduct);
+routes.get("/api/products", getProduct);
+routes.post("/api/products", createProduct);
 routes.put("/api/updateProduct/:id", updateProduct);
 routes.delete("/api/deleteOneProduct/:id", deleteProduct);
 

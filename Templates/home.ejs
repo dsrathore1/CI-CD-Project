@@ -4,18 +4,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>
         <%= title %>
     </title>
 </head>
 
-<body>
+<body class="bg-gray-900">
 
-    <h1
-        style="text-align: center; font-size: 2rem; text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <h1 class="text-3xl text-center text-white">
         🔥 Welcome to <%= title%> 🔥
     </h1>
 
+    <div class="h-[100vh] w-full flex flex-col text-white gap-y-5 justify-center items-center">
+        <div
+            class="relative h-1/2 w-1/2 border-gray-300 border-opacity-70 border-l-[.5px] overflow-x-auto shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            ID
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Product Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Company Name
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.map((item)=> { %>
+                        <tr class="<%= item.id%2 == 0 ? 'bg-gray-100 bg-opacity-5' : 'bg-transparent'%>">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <%= item.id %>
+                            </th>
+                            <td class="px-6 py-4">
+                                <%= item.name %>
+                            </td>
+                            <td class="px-6 py-4">
+                                <%= item.company %>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
+        <div class="w-full flex justify-evenly items-center my-5">
+            <button
+                class="create-btn h-10 w-44 bg-red-400 rounded active:translate-y-2 duration-200 ease-linear">Create</button>
+            <button
+                class="refresh-btn h-10 w-44 bg-cyan-400 rounded active:translate-y-2 duration-200 ease-linear">Refresh</button>
+        </div>
+    </div>
+
 </body>
+
+<script>
+    const createBtn = document.getElementsByClassName("create-btn");
+    const refreshBtn = document.getElementsByClassName("refresh-btn");
+
+    createBtn = document.addEventListener('click', function (e) {
+        window.location.replace("/api/products")
+    });
+
+
+    refreshBtn = document.addEventListener('click', function (e) {
+        window.location.reload();
+    });
+
+</script>
 
 </html>
