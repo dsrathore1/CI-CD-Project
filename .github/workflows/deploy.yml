@@ -4,15 +4,15 @@ run-name: Workflow number ${{github.run_number}} - Development
 on:
   push:
     branches:
-      - "dev"
+      - "development"
 
 jobs:
-  deployment:
+  deployments:
     runs-on: ubuntu-22.04
     
     steps:
       - name: Checkout Respository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Intialize NodeJS
         uses: actions/setup-node@v4
