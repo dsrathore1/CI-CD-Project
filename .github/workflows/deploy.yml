@@ -30,8 +30,20 @@ jobs:
       - name: Test the application
         run: npm run test
 
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y awscli
+
+      - name: Install Elastic Beanstalk CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3 python3-pip
+          pip3 install awsebcli --upgrade
+
       - name: Deploy on EB
         run: |
-          pip install awsebcli awscli
+          eb create test-env
           eb init -p node.js --region ${{secrets.AWS_REGION}} test-app
-          eb deploy
+          eb use test-env
+          eb deploy test-env
