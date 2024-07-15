@@ -9,10 +9,7 @@ on:
 jobs:
   deployment:
     runs-on: ubuntu-22.04
-    defaults:
-      run:
-        working-directory: ./server
-
+    
     steps:
       - name: Checkout Respository
         uses: actions/checkout@v4
