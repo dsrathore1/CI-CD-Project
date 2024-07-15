@@ -1,12 +1,5 @@
 {
     "yaml.schemas": {
-        "https://json.schemastore.org/github-action.json": [
-            "file:///c%3A/Users/Lenovo/Desktop/DevOps/CI-CD/.github/workflow/main-integration.yml",
-            "file:///c%3A/Users/Lenovo/Desktop/DevOps/CI-CD/.github/workflow/ci_cd.yml",
-            "file:///c%3A/Users/Lenovo/Desktop/DevOps/CI-CD/.github/workflow/main.yml",
-            "file:///c%3A/Users/Lenovo/Desktop/DevOps/CI-CD/.github/workflow/main_branch_ci_cd.yml"
-        ],
-        "https://json.schemastore.org/github-workflow.json": "file:///c%3A/Users/Lenovo/Desktop/DevOps/CI-CD/.github/workflows/dev-CI_CD.yml",
-        "https://json.schemastore.org/sourcehut-build-0.65.0.json": "file:///c%3A/Users/Lenovo/Desktop/DevOps/CI-CD/buildspec.yml"
+        "https://json.schemastore.org/github-workflow.json": "file:///c%3A/Users/Lenovo/Desktop/DevOps/CI-CD/.github/workflows/deploy.yml"
     }
 }
