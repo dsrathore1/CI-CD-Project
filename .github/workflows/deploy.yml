@@ -43,7 +43,7 @@ jobs:
 
       - name: Deploy on EB
         run: |
-          eb create test-env
           eb init -p node.js --region ${{secrets.AWS_REGION}} test-app
+          eb create test-env
           eb use test-env
           eb deploy test-env
